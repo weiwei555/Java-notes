@@ -1,0 +1,18 @@
+Notes:
+
+1. Quick sort (*quick select) | Merge sort | Binary sort
+
+   Quick sort: 
+        [ Worst: O(n^2) when pivot is l or h
+          Best: O(nlogn) when pivot is mean ]
+        Do the sort first (n), then do the sort again recursively for both the left and the right part of the pivot(*n).
+   Quick select: 
+        [O(n)]
+        Do the sort first (n), then do the sort again recursively for One Of the part of the pivot(left or right).
+            n + (n/2) + (n/4) + (n/8) + ... = n (1 + 1/2 + 1/4 + 1/8 + ...) = n (1 + (<1)) = O(n)
+   
+   https://iq.opengenus.org/time-and-space-complexity-of-quick-sort/
+   
+   Merge sort: O(nlogn)    ---   logn here means log2(n)
+        
+   
