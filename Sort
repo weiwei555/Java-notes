@@ -34,7 +34,23 @@ Notes:
         
         When one of the ptrs reach the end of its part, we then just move all the remaining elements after the other ptr to the sorted array.
   
-  Binary sort:
-      
+  Binary search (in a sorted array):
+        [O(log n)]
+        scope: n element -> n/2 element -> n/4 element -> n/8 element -> ... -> 1 element
+        total layers(while loop) we need to do to make the scope from n element to 1 element : log2(n). (how many times n need to be divided by 2 to be 1 = log2(n))
+        Each layer, we just get the current scope middle, and compare the middle and the answer, update the scope (for the next while loop), which is O(1) operation
+        Thus, it will be O(log2(n)) * O(1) = O(log n).
+        
+        search from the middle, if middle = answer you end.
+        1 if middle >= answer, you update the scope to be the front part of the array (update h to be middle)
+        2 if middle < answer, you update the scope to be the end part of the array (update l to be middle + 1 for integer, middle if float/double)
+        do this again and again (using while) until there is only one element in the scope, and that must be the answer.
+        
+        Check if this element = answer, if not, answer not found in this array.
+        
+        Be careful about 1 and 2 because in this way we find the FIRST element in the array that is equal to answer.
+        If you need to find the LAST element that is equal to answer, change 1 and 2 accordingly:
+        if middle <= answer, update the scope to be the end part of the array. (l = middle)
+        if middle > answer, update the scope to be the front part of the array. (h = middle-1 for integer, middle if float/double)
   
    
