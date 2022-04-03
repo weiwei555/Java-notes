@@ -13,6 +13,28 @@ Notes:
    
    https://iq.opengenus.org/time-and-space-complexity-of-quick-sort/
    
-   Merge sort: O(nlogn)    ---   logn here means log2(n)
+   Merge sort: 
+        [O(nlogn)    ---   logn here means log2(n)]
+        This is because we have   
+        ---------n element------------
+        ---n/2----     -----n/2-------
+        --n/4-- --n/4-- --n/4-- --n/4-
+        - - - - - -- - - - - - - -- - 
+        total layers = how many times n need to be divided by 2 to be 1 = log2(n).  (since 2^(log2(n)) = n)
+        for each layer, O(n). (O(n) for first layer, O(n/2) + O(n/2) = O(n) for second layer and so on)
+        So, total complexity is O(n) * O(log2(n)) = O(nlog2(n)).
+         
+        Do the merge sort recursion first (base case is when l = h, and there's only one element in that recursive call) for 
+        two parts: the first part (before the pivot, which is the input) and the second part.
+        Have a empty array for storing sorted elements.
         
+        Then, merge these two sorted parts together using two pointers, each pointed to the start of their parts.
+        While none of the ptrs points to the end of their parts, compare the number they are pointing to and put the smaller
+        one into the sorted array, move that ptr to the next element in its part. (the other one don't move)
+        
+        When one of the ptrs reach the end of its part, we then just move all the remaining elements after the other ptr to the sorted array.
+  
+  Binary sort:
+      
+  
    
